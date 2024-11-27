@@ -81,7 +81,9 @@ server:
   # requests:
   #  cpu: 100m
   #  memory: 128Mi
-  nodeSelector: {}
+  nodeSelector:
+    kubernetes.io/arch: amd64
+    kubernetes.io/os: linux
   tolerations: []
   affinity: {}
   additionalVolumes: []
@@ -235,7 +237,9 @@ server:
     podAnnotations: {}
     podLabels: {}
     resources: {}
-    nodeSelector: {}
+    nodeSelector:
+      kubernetes.io/arch: amd64
+      kubernetes.io/os: linux
     tolerations: []
     affinity: {}
     additionalEnv: []
@@ -259,7 +263,9 @@ server:
     podAnnotations: {}
     podLabels: {}
     resources: {}
-    nodeSelector: {}
+    nodeSelector:
+      kubernetes.io/arch: amd64
+      kubernetes.io/os: linux
     tolerations: []
     affinity: {}
     additionalEnv: []
@@ -284,7 +290,9 @@ server:
     podAnnotations: {}
     podLabels: {}
     resources: {}
-    nodeSelector: {}
+    nodeSelector:
+      kubernetes.io/arch: amd64
+      kubernetes.io/os: linux
     tolerations: []
     affinity: {}
     additionalEnv: []
@@ -308,7 +316,9 @@ server:
     podAnnotations: {}
     podLabels: {}
     resources: {}
-    nodeSelector: {}
+    nodeSelector:
+      kubernetes.io/arch: amd64
+      kubernetes.io/os: linux
     tolerations: []
     affinity: {}
     additionalEnv: []
@@ -329,7 +339,9 @@ admintools:
   deploymentAnnotations: {}
   podLabels: {}
   podAnnotations: {}
-  nodeSelector: {}
+  nodeSelector:
+      kubernetes.io/arch: amd64
+      kubernetes.io/os: linux
   tolerations: []
   affinity: {}
   additionalEnv: []
@@ -382,7 +394,9 @@ web:
   # requests:
   #  cpu: 100m
   #  memory: 128Mi
-  nodeSelector: {}
+  nodeSelector:
+      kubernetes.io/arch: amd64
+      kubernetes.io/os: linux
   tolerations: []
   affinity: {}
   additionalVolumes: []
@@ -409,9 +423,6 @@ schema:
   resources: {}
   containerSecurityContext: {}
   securityContext: {}
-  nodeSelector:
-    kubernetes.io/arch: amd64
-    kubernetes.io/os: linux
   # affinity:
   #   nodeAffinity:
   #     requiredDuringSchedulingIgnoredDuringExecution:
