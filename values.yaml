@@ -409,10 +409,13 @@ schema:
   resources: {}
   containerSecurityContext: {}
   securityContext: {}
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms: {}
+  nodeSelector:
+    kubernetes.io/arch: amd64
+    kubernetes.io/os: linux
+  # affinity:
+  #   nodeAffinity:
+  #     requiredDuringSchedulingIgnoredDuringExecution:
+  #       nodeSelectorTerms: {}
 elasticsearch:
   enabled: true
   replicas: 3
