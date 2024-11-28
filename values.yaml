@@ -423,10 +423,6 @@ schema:
   resources: {}
   containerSecurityContext: {}
   securityContext: {}
-  # affinity:
-  #   nodeAffinity:
-  #     requiredDuringSchedulingIgnoredDuringExecution:
-  #       nodeSelectorTerms: {}
 elasticsearch:
   enabled: true
   replicas: 3
@@ -441,6 +437,9 @@ elasticsearch:
   username: ""
   password: ""
   visibilityIndex: "temporal_visibility_v1_dev"
+  nodeSelector:
+    kubernetes.io/arch: amd64
+    kubernetes.io/os: linux
 prometheus:
   enabled: true
   nodeExporter:
@@ -519,5 +518,8 @@ cassandra:
     seed_size: 0
   service:
     type: ClusterIP
+  nodeSelector:
+    kubernetes.io/arch: amd64
+    kubernetes.io/os: linux
 mysql:
   enabled: false
