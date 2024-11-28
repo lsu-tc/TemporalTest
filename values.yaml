@@ -437,9 +437,19 @@ elasticsearch:
   username: ""
   password: ""
   visibilityIndex: "temporal_visibility_v1_dev"
-  nodeSelector:
-    kubernetes.io/arch: amd64
-    kubernetes.io/os: linux
+  affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/os
+          operator: In
+          values:
+          - linux
+        - key: kubernetes.io/arch
+          operator: In
+          values:
+          - amd64
 prometheus:
   enabled: true
   nodeExporter:
@@ -518,8 +528,18 @@ cassandra:
     seed_size: 0
   service:
     type: ClusterIP
-  nodeSelector:
-    kubernetes.io/arch: amd64
-    kubernetes.io/os: linux
+  affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/os
+          operator: In
+          values:
+          - linux
+        - key: kubernetes.io/arch
+          operator: In
+          values:
+          - amd64
 mysql:
   enabled: false
